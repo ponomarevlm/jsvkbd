@@ -1,27 +1,23 @@
 #keyboardInputMaster {
   position:absolute;
-  border-top:2px solid #eeeeee;
-  border-right:2px solid #6e6e6e;
-  border-bottom:2px solid #6e6e6e;
-  border-left:2px solid #eeeeee;
+  width: 940px;
+  height: 354px;
   color:#000000;
-  background-color:#dddddd;
   text-align:left;
   z-index:1000000;
-  width:auto;
   margin:0px;
-  font:normal 11px Arial,sans-serif;
+  font:normal 20px Arial,sans-serif;
   line-height:1;
 }
 #keyboardInputMaster * {
-  color:#000000;
-  background:transparent;
-  font:normal 11px Arial,sans-serif;
-  margin:0px;
-  padding:0px;
-  border:0px none;
-  outline:0px;
-  vertical-align:baseline;
+  /*color:#000000;*/
+  /*background:transparent;*/
+  /*font:normal 11px Arial,sans-serif;*/
+  /*margin:0px;*/
+  /*padding:0px;*/
+  /*border:0px none;*/
+  /*outline:0px;*/
+  /*vertical-align:baseline;*/
 }
 
 #keyboardInputMaster thead tr th {
@@ -65,60 +61,79 @@
   height:0px;
 }
 #keyboardInputMaster tbody tr td div#keyboardInputLayout {
-  height:auto;
+  /*height:auto;*/
 }
 #keyboardInputMaster tbody tr td div#keyboardInputLayout table {
-  height:20px;
+  min-height:35px;
   white-space:nowrap;
-  width:100%;
+  /*width:100%;*/
   border-collapse:separate;
-  border-spacing:0px;
+  /*border-spacing:0px;*/
 }
 #keyboardInputMaster tbody tr td div#keyboardInputLayout table.keyboardInputCenter {
   width:auto;
   margin:0px auto;
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td div {
+  min-height: 35px;
   vertical-align:middle;
-  padding:0px 5px;
+  padding: 9px 5px 0px 5px;
   white-space:pre;
-  font-family:'Lucida Console',monospace;
-  border-top:1px solid #e5e5e5;
-  border-right:1px solid #5d5d5d;
-  border-bottom:1px solid #5d5d5d;
-  border-left:1px solid #e5e5e5;
+  font:bold 20px 'Lucida Console',monospace;
+  -moz-border-radius-bottomleft:15px;
+  -moz-border-radius-bottomright:15px;
+  -moz-border-radius-topleft:15px;
+  -moz-border-radius-topright:15px;
+  border:3px solid #FF931E;
   background-color:#eeeeee;
   cursor:default;
-  min-width:0.75em;
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.last {
-  width:99%;
+
+.small-button
+{
+  min-width: 40px;
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.space {
-  padding:0px 45px;
+.middle-button
+{
+  min-width: 70px;
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive {
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.last div{
+  /*width:99%;*/
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.space div{
+  min-width: 300px;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive div{
   background-color:#ccccdd;
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target {
-  background-color:#ddddcc;
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target div{
+  /*background-color:#ddddcc;*/
 }
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
-  border-top:1px solid #d5d5d5;
-  border-right:1px solid #555555;
-  border-bottom:1px solid #555555;
-  border-left:1px solid #d5d5d5;
-  background-color:#cccccc;
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover div{
+  /*background-color:#cccccc;*/
 }
 #keyboardInputMaster thead tr td span.pressed,
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed,
-#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead {
-  border-top:1px solid #555555;
-  border-right:1px solid #d5d5d5;
-  border-bottom:1px solid #d5d5d5;
-  border-left:1px solid #555555;
-  background-color:#cccccc;
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed div,
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead div {
+  background-color:#ccccaa;
 }
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.line1, .line5 {
+	margin-left: 0px;
+	}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.line2 {
+	margin-left: 15px;
+	}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.line3 {
+	margin-left: 29px;
+	}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.line4 {
+	margin-left: 43px;
+	}
 
 #keyboardInputMaster tbody tr td div var {
   position:absolute;
@@ -133,4 +148,15 @@
   margin-left:3px;
   vertical-align:middle;
   cursor:pointer;
+}
+
+/*hide unneeded elements*/
+html body table thead tr th label,
+html body table thead tr th label input,
+html body table thead tr th select,
+#keyboardInputClear,
+#keyboardInputClose,
+.keyboardInputInitiator
+{
+	display:none;
 }
