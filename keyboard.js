@@ -102,11 +102,12 @@
 
     this.VKI_version = "1.17";
     this.VKI_target = this.VKI_visible = "";
+    this.VKI_firstField ="";
     this.VKI_shift = this.VKI_capslock = this.VKI_alternate = this.VKI_dead = false;
     this.VKI_deadkeysOn = false;
-    this.VKI_kt = "US Int'l";  // Default keyboard layout
+    this.VKI_kt = "Russian";  // Default keyboard layout
     this.VKI_clearPasswords = false;  // Clear password fields on focus
-    this.VKI_showVersion = true;
+    this.VKI_showVersion = false;
     this.VKI_keyCenter = 3;
     this.VKI_isIE = /*@cc_on!@*/false;
     this.VKI_isIE6 = /*@if(@_jscript_version == 5.6)!@end@*/false;
