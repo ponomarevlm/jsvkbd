@@ -450,6 +450,11 @@
               do { keyid = 'keyboardInputInitiator' + inputCount++; } while (document.getElementById(keyid));
               ex.id = keyid;
             } else keyid = ex.id;
+          if(!self.VKI_firstField)
+			  self.VKI_firstField=keyid;
+          /// assign keyboard to desired field
+		  ex.onfocus = (function(a) { return function() { self.VKI_show(a); }; })(keyid);
+
             var keybut = document.createElement('img');
                 keybut.src = "keyboard.png";
                 keybut.alt = "Keyboard interface";
@@ -514,6 +519,20 @@
           tr.appendChild(th);
 
         var td = document.createElement('td');
+	  	/*
+		 * adding toggle button */
+		var toggler = document.createElement('span');
+			toggler.id = "keyboardLayoutToggle";
+			toggler.appendChild(document.createTextNode("ru/en"));
+			toggler.title = "";
+			toggler.onmousedown = function() { this.className = "pressed"; };
+			toggler.onmouseup = function() { this.className = ""; };
+			toggler.onclick = function() {
+				self.VKI_kt = (self.VKI_kt=="US")?"Russian":"US";
+				self.VKI_buildKeys();
+			};
+		  td.appendChild(toggler);
+
           var clearer = document.createElement('span');
               clearer.id = "keyboardInputClear";
               clearer.appendChild(document.createTextNode("Clear"));
@@ -878,6 +897,7 @@
       this.VKI_target.focus();
       this.VKI_target = "";
     };
+  self.VKI_show(self.VKI_firstField);
   }
 
   function VKI_findPos(obj) {
