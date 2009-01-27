@@ -644,7 +644,7 @@
                   case "Enter":
                     td.onclick = function() {
                       if (self.VKI_target.nodeName != "TEXTAREA") {
-                        self.VKI_close();
+                        ///self.VKI_close();
                         this.className = this.className.replace(/ ?(hover|pressed)/g, "");
                       } else self.VKI_insert("\n");
                       return true;
@@ -832,9 +832,9 @@
           document.body.appendChild(this.VKI_keyboard);
 
           this.VKI_visible = this.VKI_target.id;
-          this.VKI_position();
+          ///this.VKI_position();
           this.VKI_target.focus();
-        } else this.VKI_close();
+        } /// else this.VKI_close();
       }
     };
 
@@ -857,11 +857,12 @@
       }
     };
 
-
+  /* no reposition
     if (window.addEventListener) {
       window.addEventListener('resize', this.VKI_position, false); 
     } else if (window.attachEvent)
       window.attachEvent('onresize', this.VKI_position);
+  */
 
 
     /* ******************************************************************
@@ -930,3 +931,4 @@
     window.addEventListener('load', VKI_buildKeyboardInputs, false); 
   } else if (window.attachEvent)
     window.attachEvent('onload', VKI_buildKeyboardInputs);
+
