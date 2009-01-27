@@ -443,7 +443,9 @@
     for (var x = 0, inputCount = 0, elem; elem = inputElems[x++];) {
       if (elem) {
         for (var y = 0, keyid = "", ex; ex = elem[y++];) {
+        /* desired field */
           if ((ex.nodeName == "TEXTAREA" || ex.type == "text" || ex.type == "password") && ex.className.indexOf("keyboardInput") > -1) {
+          /* tag with id (if there is none) and remember it */
             if (!ex.id) {
               do { keyid = 'keyboardInputInitiator' + inputCount++; } while (document.getElementById(keyid));
               ex.id = keyid;
@@ -895,7 +897,7 @@
       return [document.body.clientWidth, document.body.clientHeight];
     return [0, 0];
   }
-
+/* scrolling states */
   function VKI_scrollDist() {
     var html = document.getElementsByTagName('html')[0];
     if (html.scrollTop && document.documentElement.scrollTop) {
@@ -904,7 +906,7 @@
       return [html.scrollLeft + document.documentElement.scrollLeft, html.scrollTop + document.documentElement.scrollTop];
     return [0, 0];
   }
-
+/* style property of an obj */
   function VKI_getStyle(obj, styleProp) {
     if (obj.currentStyle) {
       var y = obj.currentStyle[styleProp];
@@ -913,6 +915,7 @@
     return y;
   }
 
+/* makes elem unselectable */
   function VKI_disableSelection(elem) {
     elem.onselectstart = function() { return false; };
     elem.unselectable = "on";
