@@ -601,6 +601,7 @@
       for (var x = 0, hasDeadKey = false, lyt; lyt = this.VKI_layout[this.VKI_kt][x++];) {
         var table = document.createElement('table');
             table.cellSpacing = table.border = "0";
+            table.className="line"+x;
         if (lyt.length <= this.VKI_keyCenter) table.className = "keyboardInputCenter";
           var tbody = document.createElement('tbody');
             var tr = document.createElement('tr');
@@ -613,7 +614,12 @@
                   for (key in this.VKI_deadkey)
                     if (key === lkey[0]) { className.push("alive"); break; }
                 if (lyt.length > this.VKI_keyCenter && y == lyt.length) className.push("last");
-                if (lkey[0] == " ") className.push("space");
+                if (lkey[0] == " ")
+					className.push("space")
+				else if(lkey[0].length>2)
+					className.push("middle-button");
+				else 
+					className.push("small-button");
                   td.className = className.join(" ");
 
                   td.onmouseover = function() { if (this.firstChild.nodeValue != "\xa0") this.className += " hover"; };
