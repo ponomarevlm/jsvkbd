@@ -607,7 +607,14 @@
             var tr = document.createElement('tr');
             for (var y = 0, lkey; lkey = lyt[y++];) {
               var td = document.createElement('td');
-                  td.appendChild(document.createTextNode(lkey[0]));
+			  	  div=document.createElement("div");
+				  div.appendChild(document.createTextNode(lkey[0]))
+				  if(lkey[0]!=" ")
+					  if(lkey[0].length>2)
+						  div.className = "middle-button";
+					  else 
+						  div.className = "small-button"; 
+                  td.appendChild(div);
 
                 var className = [];
                 if (this.VKI_deadkeysOn)
@@ -616,15 +623,11 @@
                 if (lyt.length > this.VKI_keyCenter && y == lyt.length) className.push("last");
                 if (lkey[0] == " ")
 					className.push("space")
-				else if(lkey[0].length>2)
-					className.push("middle-button");
-				else 
-					className.push("small-button");
                   td.className = className.join(" ");
 
-                  td.onmouseover = function() { if (this.firstChild.nodeValue != "\xa0") this.className += " hover"; };
+                  td.onmouseover = function() { if (this.firstChild.firstChild.nodeValue != "\xa0") this.className += " hover"; };
                   td.onmouseout = function() { this.className = this.className.replace(/ ?(hover|pressed)/g, ""); };
-                  td.onmousedown = function() { if (this.firstChild.nodeValue != "\xa0") this.className += " pressed"; };
+                  td.onmousedown = function() { if (this.firstChild.firstChild.nodeValue != "\xa0") this.className += " pressed"; };
                   td.onmouseup = function() { this.className = this.className.replace(/ ?pressed/g, ""); };
                   td.ondblclick = function() { return false; };
 
@@ -678,12 +681,12 @@
                   default:
                     td.onclick = function() {
                       if (self.VKI_deadkeysOn && self.VKI_dead) {
-                        if (self.VKI_dead != this.firstChild.nodeValue) {
+                        if (self.VKI_dead != this.firstChild.firstChild.nodeValue) {
                           for (key in self.VKI_deadkey) {
                             if (key == self.VKI_dead) {
-                              if (this.firstChild.nodeValue != " ") {
+                              if (this.firstChild.firstChild.nodeValue != " ") {
                                 for (var z = 0, rezzed = false, dk; dk = self.VKI_deadkey[key][z++];) {
-                                  if (dk[0] == this.firstChild.nodeValue) {
+                                  if (dk[0] == this.firstChild.firstChild.nodeValue) {
                                     self.VKI_insert(dk[1]);
                                     rezzed = true;
                                     break;
@@ -698,10 +701,10 @@
                         } else rezzed = true;
                       } self.VKI_dead = false;
 
-                      if (!rezzed && this.firstChild.nodeValue != "\xa0") {
+                      if (!rezzed && this.firstChild.firstChild.nodeValue != "\xa0") {
                         if (self.VKI_deadkeysOn) {
                           for (key in self.VKI_deadkey) {
-                            if (key == this.firstChild.nodeValue) {
+                            if (key == this.firstChild.firstChild.nodeValue) {
                               self.VKI_dead = key;
                               this.className += " dead";
                               if (self.VKI_shift) self.VKI_modify("Shift");
@@ -709,8 +712,8 @@
                               break;
                             }
                           }
-                          if (!self.VKI_dead) self.VKI_insert(this.firstChild.nodeValue);
-                        } else self.VKI_insert(this.firstChild.nodeValue);
+                          if (!self.VKI_dead) self.VKI_insert(this.firstChild.firstChild.nodeValue);
+                        } else self.VKI_insert(this.firstChild.firstChild.nodeValue);
                       }
 
                       self.VKI_modify("");
@@ -769,9 +772,9 @@
               break;
             case "Tab": case "Enter": case "Bksp": break;
             default:
-              if (type) tds[y].firstChild.nodeValue = lkey[vchar + ((this.VKI_alternate && lkey.length == 4) ? 2 : 0)];
+              if (type) tds[y].firstChild.firstChild.nodeValue = lkey[vchar + ((this.VKI_alternate && lkey.length == 4) ? 2 : 0)];
               if (this.VKI_deadkeysOn) {
-                var char = tds[y].firstChild.nodeValue;
+                var char = tds[y].firstChild.firstChild.nodeValue;
                 if (this.VKI_dead) {
                   if (char == this.VKI_dead) className.push("dead");
                   for (var z = 0; z < this.VKI_deadkey[this.VKI_dead].length; z++) {
