@@ -84,9 +84,10 @@
   -moz-border-radius-bottomright:15px;
   -moz-border-radius-topleft:15px;
   -moz-border-radius-topright:15px;
-  border:3px solid #FF931E;
-  background-color:#eeeeee;
+  border: 1px solid #50638D;
   cursor:default;
+  background: #EEE url("button_bg.png") repeat-x center;
+  color: #243C70;
 }
 
 .small-button
@@ -116,7 +117,7 @@
 #keyboardInputMaster thead tr td span.pressed,
 #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed div,
 #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead div {
-  background-color:#ccccaa;
+  background: #EEE url("button_bg_onpress.png") repeat-x center;
 }
 
 #keyboardInputMaster tbody tr td div#keyboardInputLayout table.line1, .line5 {
@@ -156,6 +157,7 @@ html body table thead tr th label input,
 html body table thead tr th select,
 #keyboardInputClear,
 #keyboardInputClose,
+#keyboardLayoutToggle,
 .keyboardInputInitiator
 {
 	display:none;
