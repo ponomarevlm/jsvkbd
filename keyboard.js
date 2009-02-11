@@ -826,6 +826,10 @@
       if (this.VKI_shift) this.VKI_modify("Shift");
       if (this.VKI_alternate) this.VKI_modify("AltGr");
       this.VKI_target.focus();
+	  //follow the cursor!
+      evt=document.createEvent("KeyboardEvent");
+      evt.initKeyEvent( "keypress", true, true, null, false, false, false, false, 27, 0);
+      this.VKI_target.dispatchEvent(evt);
     };
 
 
